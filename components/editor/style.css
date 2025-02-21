@@ -1,0 +1,177 @@
+/* =============================================================================
+TEXT INPUT
+============================================================================= */
+.chat-input-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+  padding: 12px 15px;
+}
+
+#chat-input {
+  flex-grow: 1;
+  padding: 10px 14px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow-y: auto;
+  line-height: 1.25em;
+  max-height: 100px;
+  outline: none;
+  direction: ltr;
+  white-space: normal;
+  /* Safari */
+  -webkit-writing-mode: horizontal-tb;
+}
+
+#chat-input:focus {
+  border: 1px solid #0088cc;
+}
+/* =============================================================================
+SEND BUTTON
+============================================================================= */
+#send-btn {
+  padding: 10px 16px;
+  margin-left: 12px;
+  font-size: 1em;
+  background: #5b99ee;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background: #007ab8;
+}
+/* =============================================================================
+SINGLE_LINE QUOTE (q)
+============================================================================= */
+q {
+  position: relative;
+  display: inline-block;
+  margin: 0.75em 0;
+  padding: 0.5em 2em 0.5em 0.5em;
+  border-left: 5px solid #333;
+  border-radius: 10px;
+  background-color: #c1f9f9;
+  color: #000;
+  font-style: italic;
+  overflow: hidden;
+  z-index: 0;
+}
+
+q::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../images/quote.svg');
+  background-repeat: repeat;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+q > * {
+  position: relative;
+  z-index: 1;
+}
+
+q::after {
+  content: '”';
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
+  color: #fff;
+  transform: translate(50%, -50%);
+  z-index: 2;
+}
+/* =============================================================================
+MULTI_LINE QUOTE (blockquote)
+============================================================================= */
+blockquote {
+  position: relative;
+  margin: 0.75em 0;
+  padding: 0.5em 2em 0.5em 0.5em;
+  border-left: 5px solid #333;
+  border-radius: 10px;
+  background-color: #c1f9f9;
+  color: #000;
+  font-style: italic;
+  overflow: hidden;
+  z-index: 0;
+}
+
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../images/quote.svg');
+  background-repeat: repeat;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+blockquote > * {
+  position: relative;
+  z-index: 1;
+}
+
+blockquote::after {
+  content: '”';
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
+  color: #fff;
+  transform: translate(50%, -50%);
+  z-index: 2;
+}
+/* =============================================================================
+SPOILER
+============================================================================= */
+details {
+  position: relative;
+  border: 1px solid #e1005d;
+  border-radius: 5px;
+  margin: 0.75em 0;
+  padding: 1.25em 0.5em;
+  background-color: transparent;
+  color: #000;
+  z-index: 0;
+}
+
+details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../images/spoiler.svg');
+  background-repeat: repeat;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+details > summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.25em 0;
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+/* ========================================================================== */

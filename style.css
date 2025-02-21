@@ -1,0 +1,53 @@
+/* =============================================================================
+GENERAL STYLES
+============================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: #e5e5e5;
+}
+
+/* Container holding all columns */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Common column styles */
+.column {
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* Ensure that the non-editable zero-width-space spans are preserved */
+.non-editable {
+  width: 1px;
+  min-width: 1px;
+  max-width: 1px;
+  opacity: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+/* =============================================================================
+RESPONSIVE
+============================================================================= */
+@media (max-width: 768px) {
+  .left-column {
+    width: 100px;
+  }
+
+  .middle-column {
+    max-width: 35%;
+  }
+}
+/* ========================================================================== */

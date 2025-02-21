@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('astronaut_cats.svg');
+  background-repeat: repeat;
+  background-size: 300px;
+  z-index: 1;
+}
+
+.plate {
+  position: fixed;
+  width: 200vmax;
+  height: 200vmax;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-radius: 50%;
+  opacity: 0.6;
+  background: -webkit-conic-gradient(
+    hsl(0, 85%, 65%),
+    hsl(60, 85%, 65%),
+    hsl(120, 85%, 65%),
+    hsl(180, 85%, 65%),
+    hsl(240, 85%, 65%),
+    hsl(300, 85%, 65%),
+    hsl(360, 85%, 65%)
+  );
+  background: conic-gradient(
+    hsl(0, 85%, 65%),
+    hsl(60, 85%, 65%),
+    hsl(120, 85%, 65%),
+    hsl(180, 85%, 65%),
+    hsl(240, 85%, 65%),
+    hsl(300, 85%, 65%),
+    hsl(360, 85%, 65%)
+  );
+  transition: transform 0.3s ease;
+  z-index: 2;
+  filter: blur(75px);
+}

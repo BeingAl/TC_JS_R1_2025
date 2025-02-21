@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Telegram</title>
+    <link rel="stylesheet" href="fonts/icons/fontello.com/css/telegram.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="components/editor/style.css" />
+    <link rel="stylesheet" href="components/folder/style.css" />
+    <link rel="stylesheet" href="components/chat_box/style.css" />
+    <link rel="stylesheet" href="components/chat_list/style.css" />
+    <link rel="stylesheet" href="components/scrollbar/scrollbar.css" />
+  </head>
+  <body>
+    <!-- =======================================================================
+    BODY
+    ======================================================================== -->
+    <div class="container">
+      <!-- =====================================
+      FOLDERS
+      ====================================== -->
+      <div class="column left-column">
+        <!-- Settings menu -->
+        <div class="menu">
+          <div class="menu-icon">
+            <i class="icon-sliders"></i>
+          </div>
+        </div>
+        <!-- Folders section -->
+        <div class="folders"></div>
+      </div>
+      <!-- =====================================
+      CHAT_LIST
+      ====================================== -->
+      <div class="column middle-column">
+        <div class="chat-list"></div>
+      </div>
+
+      <!-- Draggable separator between middle and right columns -->
+      <div class="separator"></div>
+      <!-- =====================================
+      CHAT_BOX
+      ====================================== -->
+      <div class="column right-column">
+        <div class="chat-box"></div>
+
+        <!-- Text editor -->
+        <div class="chat-input-container">
+          <div id="chat-input" class="editable-div" contenteditable="true">
+            Plain Text<br />
+
+            <s>Deleted Text</s><br />
+            <del>Deleted Text</del><br />
+            <strike>Deleted Text</strike><br />
+            <del></del><br />
+
+            <u>Underline Text</u><br />
+
+            <pre>Pre-Code Text</pre>
+            <code>Code Text</code><br />
+
+            <i>Italic Text</i><br />
+            <em>Emphasized Text</em><br />
+
+            <q>Quote Text</q><br />
+            <blockquote>
+              BlockQuote Text<br />
+              BlockQuote Text<br />
+              BlockQuote Text
+            </blockquote>
+
+            <mark>Marked Text</mark><br />
+
+            <details>
+              <summary id="spoiler-title"></summary>
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text<br />
+              Spoiler Text
+            </details>
+
+            <a href="https://telegram.org/">Visit Telegram.org</a><br />
+
+            text&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;<b>Bold Text</b
+            >&nbsp;text<br />
+            <strong>Strong Text</strong>
+          </div>
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+    <!-- =======================================================================
+    SCRIPTS
+    ======================================================================== -->
+    <script src="script.js"></script>
+    <script src="components/folder/script.js"></script>
+    <script src="components/editor/script.js"></script>
+    <script src="components/chat_box/script.js"></script>
+    <script src="components/chat_list/script.js"></script>
+    <script>
+      // Initialization on DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', () => {
+        generateFolders();
+        generateChatList();
+        generateChatConversation();
+        setupChatInput();
+        setupResizableSeparator();
+      });
+
+      const splTitle = document.getElementById('spoiler-title');
+      if (splTitle) splTitle.innerText = SPOILER_ALERT_MSG;
+    </script>
+  </body>
+</html>

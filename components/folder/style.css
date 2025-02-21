@@ -1,0 +1,92 @@
+/* =============================================================================
+FOLDERS COLUMN
+============================================================================= */
+.left-column {
+  width: 100px;
+  min-width: 100px;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 5px;
+  color: #717579;
+
+  /* WebKit (Safari, etc.) */
+  -webkit-user-select: none;
+  /* Chrome, Firefox */
+  -moz-user-select: none;
+  /* Standard */
+  user-select: none;
+}
+/* =============================================================================
+SETTINGS MENU
+============================================================================= */
+.menu {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(113, 117, 121, 0.3);
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: #717579;
+}
+/* =============================================================================
+FOLDERS
+============================================================================= */
+.folders {
+  display: flex;
+  flex-direction: column;
+  /* Use margin to support older versions of Safari */
+  gap: 20px;
+}
+
+.folder-item {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.folder-item i {
+  font-size: 33px;
+  transition: color 0.3s ease;
+  color: #717579;
+}
+
+.folder-label {
+  display: block;
+  font-size: 13px;
+  margin: 0 0 4px 1px;
+  color: #717579;
+}
+
+/* Active folder */
+.folder-item.active i,
+.folder-item.active .folder-label {
+  color: #5b99ee;
+  text-stroke: 1px rgba(255, 255, 255, 0.25);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+}
+/* =============================================================================
+BADGE
+============================================================================= */
+.folder-badge {
+  position: absolute;
+  top: -4px;
+  right: 7px;
+  background: #5b99ee;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+/* ========================================================================== */
