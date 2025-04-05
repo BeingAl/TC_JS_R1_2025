@@ -34,22 +34,22 @@ function generateFolders() {
 
   // Array of CSS classes.
   const iconClasses = [
-    'icon-chat',
-    'icon-user',
-    'icon-rss-squared',
-    'icon-users',
-    'icon-android',
-    'icon-folder',
-    'icon-home',
-    'icon-handshake-o',
-    'icon-money',
-    'icon-attention',
-    'icon-star',
-    'icon-graduation-cap',
-    'icon-ambulance',
-    'icon-picture',
-    'icon-doc-text-inv',
-    'icon-calendar',
+    'fa-comments',
+    'fa-user',
+    'fa-square-rss',
+    'fa-users',
+    'fa-robot',
+    'fa-folder',
+    'fa-house',
+    'fa-handshake',
+    'fa-money-bill-1',
+    'fa-triangle-exclamation',
+    'fa-star',
+    'fa-graduation-cap',
+    'fa-truck-medical',
+    'fa-image',
+    'fa-file-lines',
+    'fa-calendar-days',
   ];
 
   const foldersContainer = document.querySelector('.folders');
@@ -68,7 +68,7 @@ function generateFolders() {
     // Pick the next class in sequence from the iconClasses array.
     const iconClass = iconClasses[iconClassIndex % iconClasses.length];
     iconClassIndex++;
-    icon.classList.add(iconClass);
+    icon.classList.add('fa-solid', iconClass);
     folItem.appendChild(icon);
 
     // Create the text label underneath the icon.
