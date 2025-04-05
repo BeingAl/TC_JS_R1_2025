@@ -1,0 +1,182 @@
+/* =============================================================================
+GENERAL STYLES
+============================================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  padding: 20px;
+  margin: 50px 0;
+  font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+/* =============================================================================
+EDITOR
+============================================================================= */
+.editor-container {
+  max-width: 75%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.editor {
+  border: 1px solid #ccc;
+  min-height: 300px;
+  padding: 15px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* =============================================================================
+FORMATING MENU
+============================================================================= */
+.menu {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  width: 100%;
+  display: none;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 100;
+}
+
+.menu.active {
+  display: flex;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =============================================================================
+MENU BUTTONS
+============================================================================= */
+.menu button {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  border-radius: 5px;
+}
+
+.menu button:hover {
+  background-color: #d3d3d3;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: #d3d3d3;
+  margin: 0 5px;
+}
+/* =============================================================================
+FORMATTING STYLES
+============================================================================= */
+.editor b {
+  font-weight: bold;
+}
+
+.editor i {
+  font-style: italic;
+}
+
+.editor u {
+  text-decoration: underline;
+}
+
+.editor s {
+  text-decoration: line-through;
+}
+
+.editor q {
+  quotes: '' ' ' '';
+  border-left: 2px solid #ddd;
+  padding-left: 8px;
+  color: #3c3c3c;
+}
+
+.editor mark {
+  background-color: #ffe817;
+  padding: 0 2px;
+}
+
+.editor .spoiler {
+  background-color: #000;
+  color: #000;
+  padding: 0 2px;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.editor .spoiler.revealed {
+  color: #fff;
+}
+
+.editor code {
+  font-family: monospace;
+  background-color: #c2c2c2;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.editor a {
+  color: #0366d6;
+  text-decoration: underline;
+}
+
+.editor a:hover {
+  text-decoration: none;
+}
+/* =============================================================================
+URL INPUT FORM
+============================================================================= */
+.url-form {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  animation: fadeIn 0.2s;
+}
+
+.url-form.active {
+  display: flex;
+}
+
+.url-form input {
+  flex: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.url-buttons {
+  gap: 5px;
+  display: flex;
+}
+
+.confirm-btn {
+  background-color: #4caf50 !important;
+}
+
+.cancel-btn {
+  background-color: #f44336 !important;
+}
+/* ========================================================================== */
