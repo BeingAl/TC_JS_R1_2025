@@ -1,31 +1,14 @@
 /* =============================================================================
 CONSTS / CONFIGS / GENERAL ITEMS
 ============================================================================= */
-const editor = document.getElementById('editor');
+const editorID = 'editor';
+const editor = document.getElementById(editorID);
 const menu = document.getElementById('formatting-menu');
 const urlForm = document.getElementById('url-input-form');
 const urlInput = document.getElementById('url-input');
 
 // Track selection state
 let lastSelection = null;
-
-/**
- * @param {requestCallback} func
- * @param {number} wait
- * @returns {function}
- * @description Debounce function for performance optimization
- */
-function debounce(func, wait) {
-  let timeout;
-  return function () {
-    const context = this;
-    const args = arguments;
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func.apply(context, args);
-    }, wait);
-  };
-}
 
 /**
  * @returns null
@@ -39,7 +22,9 @@ function selectNode(node) {
   selection.removeAllRanges();
   selection.addRange(range);
 }
-
+/* =============================================================================
+ENTER KEY
+============================================================================= */
 // Handle enter key to insert br instead of div
 editor.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') {
@@ -52,7 +37,14 @@ editor.addEventListener('keydown', function (e) {
         // Cancel the default action
         e.preventDefault();
 
-        for (let i = 0; i < 2; i++) {
+        let brCount = 1;
+        const currentNode = range.endContainer;
+        const parent = currentNode.parentNode;
+        const childs = parent.childNodes;
+        const lastChild = parent.childNodes[childs.length - 1];
+        if (currentNode === lastChild) brCount = 2;
+
+        for (let i = 0; i < brCount; i++) {
           const br = document.createElement('br'); // Create br element
           range.deleteContents(); // Delete any selected content first
           range.insertNode(br); // Insert the br
@@ -68,6 +60,18 @@ editor.addEventListener('keydown', function (e) {
         // Update selection
         selection.removeAllRanges();
         selection.addRange(range);
+
+        /* Escape the situation where you can't get out of the last element
+        that has a format. */
+        const eChilds = editor.childNodes;
+        if (
+          brCount === 2 && // is last child
+          parent !== editor && // we are inside an element
+          eChilds[eChilds.length - 1].nodeName.toLowerCase() !== 'br'
+        ) {
+          const br = document.createElement('br');
+          editor.appendChild(br);
+        }
       }
     }
   }
