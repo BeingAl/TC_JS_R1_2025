@@ -105,13 +105,6 @@ FORMATTING STYLES
   text-decoration: line-through;
 }
 
-.editor q {
-  quotes: '' ' ' '';
-  border-left: 2px solid #ddd;
-  padding-left: 8px;
-  color: #3c3c3c;
-}
-
 .editor mark {
   background-color: #ffe817;
   padding: 0 2px;
@@ -131,10 +124,11 @@ FORMATTING STYLES
 }
 
 .editor code {
+  display: inline-block;
   font-family: monospace;
-  background-color: #c2c2c2;
+  background-color: #d7d7d7;
   padding: 0 3px;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .editor a {
@@ -144,6 +138,51 @@ FORMATTING STYLES
 
 .editor a:hover {
   text-decoration: none;
+}
+/* =============================================================================
+SINGLE_LINE QUOTE (q)
+============================================================================= */
+q {
+  position: relative;
+  display: inline-block;
+  margin: 0.75em 0;
+  padding: 0.5em 2em 0.5em 0.5em;
+  border-left: 5px solid #333;
+  border-radius: 10px;
+  background-color: #c1f9f9;
+  color: #000;
+  font-style: italic;
+  overflow: hidden;
+  z-index: 0;
+}
+
+q::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../images/quote.svg');
+  background-repeat: repeat;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+q > * {
+  position: relative;
+  z-index: 1;
+}
+
+q::after {
+  content: '”';
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
+  color: #fff;
+  transform: translate(50%, -50%);
+  z-index: 2;
 }
 /* =============================================================================
 URL INPUT FORM
