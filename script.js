@@ -25,6 +25,24 @@ const sampleMessages = [
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+/**
+ * @param {requestCallback} func
+ * @param {number} wait
+ * @returns {function}
+ * @description Debounce function for performance optimization
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(context, args);
+    }, wait);
+  };
+}
 /* =============================================================================
 OS & BROWSER
 ============================================================================= */
