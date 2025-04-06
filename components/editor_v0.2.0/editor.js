@@ -1,5 +1,5 @@
 /* =============================================================================
-CONSTS & GENERAL ITEMS
+CONSTS / CONFIGS / GENERAL ITEMS
 ============================================================================= */
 const editor = document.getElementById('editor');
 const menu = document.getElementById('formatting-menu');
