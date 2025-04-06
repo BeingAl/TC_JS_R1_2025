@@ -4,13 +4,95 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Telegram</title>
-    <link rel="stylesheet" href="fonts/icons/fontello.com/css/telegram.css" />
+    <link
+      rel="stylesheet"
+      href="fonts/icons/fontawesome/v6.7.2-web/css/fontawesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="fonts/icons/fontawesome/v6.7.2-web/css/solid.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="components/editor/style.css" />
     <link rel="stylesheet" href="components/folder/style.css" />
     <link rel="stylesheet" href="components/chat_box/style.css" />
     <link rel="stylesheet" href="components/chat_list/style.css" />
     <link rel="stylesheet" href="components/scrollbar/scrollbar.css" />
+    <link rel="stylesheet" href="components/editor_v0.2.0/style.css" />
+    <style>
+      /* =======================================================================
+      CHAT BOX
+      ======================================================================= */
+      .chat-box {
+        padding-bottom: 225px;
+      }
+      /* =======================================================================
+      SETTINGS MENU
+      ======================================================================= */
+      .setting-menu {
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(113, 117, 121, 0.3);
+      }
+
+      .setting-menu-icon {
+        font-size: 25px;
+        cursor: pointer;
+        color: #717579;
+      }
+      /* =======================================================================
+      SEND BUTTON
+      ======================================================================= */
+      #send-btn {
+        padding: 10px 16px;
+        margin-left: 12px;
+        font-size: 1em;
+        background: #5b99ee;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      #send-btn:hover {
+        background: #007ab8;
+      }
+      /* =======================================================================
+      EDITOR
+      ======================================================================= */
+      .editor-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        border-top: 1px solid #ddd;
+        background: #f9f9f9;
+        padding: 12px 15px;
+        margin: 0 auto;
+      }
+
+      #editor {
+        flex-grow: 1;
+        padding: 10px 14px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow-y: auto;
+        line-height: 1.25em;
+        min-height: 200px;
+        max-height: 200px;
+        outline: none;
+        direction: ltr;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        white-space: normal;
+        /* Safari */
+        -webkit-writing-mode: horizontal-tb;
+      }
+
+      #editor:focus {
+        border: 1px solid #0088cc;
+      }
+    </style>
   </head>
   <body>
     <!-- =======================================================================
@@ -22,9 +104,9 @@
       ====================================== -->
       <div class="column left-column">
         <!-- Settings menu -->
-        <div class="menu">
-          <div class="menu-icon">
-            <i class="icon-sliders"></i>
+        <div class="setting-menu">
+          <div class="setting-menu-icon">
+            <i class="fa-solid fa-sliders"></i>
           </div>
         </div>
         <!-- Folders section -->
@@ -46,51 +128,63 @@
         <div class="chat-box"></div>
 
         <!-- Text editor -->
-        <div class="chat-input-container">
-          <div id="chat-input" class="editable-div" contenteditable="true">
-            Plain Text<br />
-
-            <s>Deleted Text</s><br />
-            <del>Deleted Text</del><br />
-            <strike>Deleted Text</strike><br />
-            <del></del><br />
-
-            <u>Underline Text</u><br />
-
-            <pre>Pre-Code Text</pre>
-            <code>Code Text</code><br />
-
-            <i>Italic Text</i><br />
-            <em>Emphasized Text</em><br />
-
-            <q>Quote Text</q><br />
-            <blockquote>
-              BlockQuote Text<br />
-              BlockQuote Text<br />
-              BlockQuote Text
-            </blockquote>
-
-            <mark>Marked Text</mark><br />
-
-            <details>
-              <summary id="spoiler-title"></summary>
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text<br />
-              Spoiler Text
-            </details>
-
-            <a href="https://telegram.org/">Visit Telegram.org</a><br />
-
-            text&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;<b>Bold Text</b
-            >&nbsp;text<br />
-            <strong>Strong Text</strong>
+        <div class="editor-container">
+          <!-- =====================================
+          FORMATING_MENU
+          ====================================== -->
+          <div id="formatting-menu" class="menu">
+            <button onclick="formatText('bold')" title="Bold">
+              <i class="fas fa-bold"></i>
+            </button>
+            <button onclick="formatText('italic')" title="Italic">
+              <i class="fas fa-italic"></i>
+            </button>
+            <button onclick="formatText('underline')" title="Underline">
+              <i class="fas fa-underline"></i>
+            </button>
+            <button onclick="formatText('strikeout')" title="Strikeout">
+              <i class="fas fa-strikethrough"></i>
+            </button>
+            <button onclick="formatText('monospace')" title="Monospace">
+              <i class="fas fa-code"></i>
+            </button>
+            <div class="separator"></div>
+            <button onclick="formatText('quote')" title="Quote">
+              <i class="fas fa-quote-right"></i>
+            </button>
+            <button onclick="formatText('marked')" title="Marked">
+              <i class="fas fa-highlighter"></i>
+            </button>
+            <button onclick="formatText('spoiler')" title="Spoiler">
+              <i class="fas fa-eye-slash"></i>
+            </button>
+            <button onclick="formatText('link')" title="Link">
+              <i class="fas fa-link"></i>
+            </button>
+            <div class="separator"></div>
           </div>
+          <!-- =====================================
+          URL_INPUT_FORM
+          ====================================== -->
+          <div id="url-input-form" class="menu url-form">
+            <input
+              type="text"
+              id="url-input"
+              placeholder="Enter URL"
+              onkeydown="handleUrlInputKey(event)" />
+            <div class="url-buttons">
+              <button onclick="cancelUrl()" class="cancel-btn">
+                <i class="fas fa-times"></i>
+              </button>
+              <button onclick="submitUrl()" class="confirm-btn">
+                <i class="fas fa-check"></i>
+              </button>
+            </div>
+          </div>
+          <!-- =====================================
+          EDITABLE
+          ====================================== -->
+          <div id="editor" class="editor" contenteditable="true"></div>
           <button id="send-btn">Send</button>
         </div>
       </div>
@@ -100,21 +194,18 @@
     ======================================================================== -->
     <script src="script.js"></script>
     <script src="components/folder/script.js"></script>
-    <script src="components/editor/script.js"></script>
     <script src="components/chat_box/script.js"></script>
     <script src="components/chat_list/script.js"></script>
+    <script src="components/editor_v0.2.0/editor.js"></script>
+    <script src="components/editor_v0.2.0/history.js"></script>
     <script>
       // Initialization on DOMContentLoaded
       document.addEventListener('DOMContentLoaded', () => {
         generateFolders();
         generateChatList();
         generateChatConversation();
-        setupChatInput();
         setupResizableSeparator();
       });
-
-      const splTitle = document.getElementById('spoiler-title');
-      if (splTitle) splTitle.innerText = SPOILER_ALERT_MSG;
     </script>
   </body>
 </html>
