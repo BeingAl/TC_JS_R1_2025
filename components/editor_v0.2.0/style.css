@@ -1,19 +1,4 @@
 /* =============================================================================
-GENERAL STYLES
-============================================================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  line-height: 1.6;
-  padding: 20px;
-  margin: 50px 0;
-  font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
-}
-/* =============================================================================
 EDITOR
 ============================================================================= */
 .editor-container {
@@ -80,7 +65,7 @@ MENU BUTTONS
   background-color: #d3d3d3;
 }
 
-.separator {
+.menu .separator {
   width: 1px;
   height: 24px;
   background-color: #d3d3d3;
@@ -142,7 +127,7 @@ FORMATTING STYLES
 /* =============================================================================
 SINGLE_LINE QUOTE (q)
 ============================================================================= */
-q {
+.editor q {
   position: relative;
   display: inline-block;
   margin: 0.75em 0;
@@ -156,7 +141,7 @@ q {
   z-index: 0;
 }
 
-q::before {
+.editor q::before {
   content: '';
   position: absolute;
   top: 0;
@@ -169,12 +154,12 @@ q::before {
   z-index: -1;
 }
 
-q > * {
+.editor q > * {
   position: relative;
   z-index: 1;
 }
 
-q::after {
+.editor q::after {
   content: '”';
   position: absolute;
   top: 0.5em;
