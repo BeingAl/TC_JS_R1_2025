@@ -41,7 +41,7 @@
       /* =======================================================================
       SEND BUTTON
       ======================================================================= */
-      #send-btn {
+      #sendbtn {
         padding: 10px 16px;
         margin-left: 12px;
         font-size: 1em;
@@ -52,7 +52,7 @@
         cursor: pointer;
       }
 
-      #send-btn:hover {
+      #sendbtn:hover {
         background: #007ab8;
       }
       /* =======================================================================
@@ -125,7 +125,7 @@
       CHAT_BOX
       ====================================== -->
       <div class="column right-column">
-        <div class="chat-box"></div>
+        <div id="chatbox" class="chat-box"></div>
 
         <!-- Text editor -->
         <div class="editor-container">
@@ -185,7 +185,7 @@
           EDITABLE
           ====================================== -->
           <div id="editor" class="editor" contenteditable="true"></div>
-          <button id="send-btn">Send</button>
+          <button id="sendbtn">Send</button>
         </div>
       </div>
     </div>
@@ -198,6 +198,7 @@
     <script src="components/chat_list/script.js"></script>
     <script src="components/editor_v0.2.0/editor.js"></script>
     <script src="components/editor_v0.2.0/history.js"></script>
+    <script src="components/editor_v0.2.0/ast.js"></script>
     <script>
       // Initialization on DOMContentLoaded
       document.addEventListener('DOMContentLoaded', () => {
@@ -205,6 +206,31 @@
         generateChatList();
         generateChatConversation();
         setupResizableSeparator();
+
+        // Send button
+        const sendBtn = document.getElementById('sendbtn');
+        sendBtn.addEventListener('click', () => {
+          const msg = editor.innerHTML;
+          if (msg !== '') {
+            const ast = htmlToAST(editor);
+            const html = astToHTML(ast);
+
+            // #ref: components/chat_box/script.js
+            appendMessage('self', html);
+            editor.innerHTML = '';
+
+            console.log(ast);
+            console.log(html);
+          }
+        });
+
+        // Toggle spoiler content on click (chat box)
+        const chatBox = document.getElementById('chatbox');
+        chatBox.addEventListener('click', (e) => {
+          if (e.target.classList.contains('spoiler')) {
+            e.target.classList.toggle('revealed');
+          }
+        });
       });
     </script>
   </body>
