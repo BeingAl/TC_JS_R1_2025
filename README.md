@@ -330,8 +330,6 @@ So I did my best to make it as solid as possible.
 
 #### <ins>PREVIEW:</ins>
 
-<video width="1024" height="600" controls>
-  <source src="demo.mp4" type="video/mp4">
-</video>
+[Video File](https://beingal.github.io/TC_JS_R1_2025/demo.mp4 "Video File")
 
 ---
