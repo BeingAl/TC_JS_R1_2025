@@ -314,7 +314,7 @@ That allows you to continue typing outside of that formatting, without needing t
 
 ---
 
-#### <ins>FINAL WORD (v0.2.0) 😄:</ins>
+#### <ins>FINAL WORD (v0.2.0):</ins>
 
 Even though I had already submitted the first version of my project, and there was no mention of reevaluating submissions during the extra time that was announced, I later saw a post in Channel A that made me realize I had misunderstood some parts of the editor requirements.
 
@@ -325,5 +325,13 @@ Despite everything, there’s a quote from Steve Martin that really stuck with m
 `"Be So Good They Can't Ignore You"`
 
 So I did my best to make it as solid as possible.
+
+---
+
+#### <ins>PREVIEW:</ins>
+
+<video width="1024" height="600" controls>
+  <source src="demo.mp4" type="video/mp4">
+</video>
 
 ---
