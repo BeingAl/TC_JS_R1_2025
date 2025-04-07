@@ -2,6 +2,10 @@
 
 ---
 
+### This section is for version 0.1.0 descriptions, for version 0.2.0 descriptions, go to the bottom of the readme file.
+
+---
+
 #### <ins>PREFACE:</ins>
 
 I have completed all the tasks, including the bonus task, and I have added two additional features as well.
@@ -43,8 +47,9 @@ The code will function correctly:
 
 In addition to submitting the project as an archive file and through the bot, I will make it publicly available at this address after the project deadline:
 
-  * [GitHub](https://github.com/BeingAl/TC_JS_R1_2025/ "GitHub")
-  * [Demo (App)](https://beingal.github.io/TC_JS_R1_2025/ "Demo (App)")
+  * [Source Code (GitHub)](https://github.com/BeingAl/TC_JS_R1_2025/ "GitHub")
+  * [Demo (App) (v0.1.0)](https://beingal.github.io/TC_JS_R1_2025/index_v0.1.0.html "Demo (App) (v0.1.0)")
+  * [Demo (App) (v0.2.0)](https://beingal.github.io/TC_JS_R1_2025/index.html "Demo (App) (v0.2.0)")
   * [Demo (Animated Background)](https://beingal.github.io/TC_JS_R1_2025/components/animated_background/ "Animated Background")
 
 ---
@@ -53,7 +58,6 @@ In addition to submitting the project as an archive file and through the bot, I 
 
 ```sh
 .
-├── LICENSE
 ├── components
 │   ├── animated_background
 │   │   ├── astronaut_cats.svg
@@ -66,8 +70,14 @@ In addition to submitting the project as an archive file and through the bot, I 
 │   ├── chat_list
 │   │   ├── script.js
 │   │   └── style.css
-│   ├── editor
+│   ├── editor_v0.1.0
 │   │   ├── script.js
+│   │   └── style.css
+│   ├── editor_v0.2.0
+│   │   ├── ast.js
+│   │   ├── editor.js
+│   │   ├── history.js
+│   │   ├── index.html
 │   │   └── style.css
 │   ├── folder
 │   │   ├── script.js
@@ -76,24 +86,9 @@ In addition to submitting the project as an archive file and through the bot, I 
 │       └── scrollbar.css
 ├── fonts
 │   └── icons
-│       └── fontello.com
-│           ├── LICENSE.txt
-│           ├── README.txt
-│           ├── config.json
-│           ├── css
-│           │   ├── animation.css
-│           │   ├── telegram-codes.css
-│           │   ├── telegram-embedded.css
-│           │   ├── telegram-ie7-codes.css
-│           │   ├── telegram-ie7.css
-│           │   └── telegram.css
-│           ├── demo.html
-│           └── font
-│               ├── telegram.eot
-│               ├── telegram.svg
-│               ├── telegram.ttf
-│               ├── telegram.woff
-│               └── telegram.woff2
+│       └── fontawesome
+│           └── v6.7.2-web
+│               └── *
 ├── images
 │   ├── quote.svg
 │   ├── samples
@@ -101,7 +96,10 @@ In addition to submitting the project as an archive file and through the bot, I 
 │   │   ├── ui_final.png
 │   │   └── wireframe.png
 │   └── spoiler.svg
+├── index_v0.1.0.html
 ├── index.html
+├── LICENSE
+├── README.md
 ├── script.js
 └── style.css
 ```
@@ -260,5 +258,72 @@ Finally, I am aware that I did not implement these features in the current proje
 They should be fully usable in your current project or any other projects.  
 
 Thank you very much (❤️).
+
+---
+
+#### <ins>PREFACE (v0.2.0):</ins>
+
+
+On the day the results were supposed to be announced, Telegram said they’d actually be sharing them seven days later.
+
+I used that extra time to improve the earlier parts of my work, and in the end, I built a standalone text editor that can be used both in this project and in others.
+
+---
+
+#### <ins>FONT:</ins>
+
+I updated the icon fonts and fully switched over to FontAwesome.
+
+---
+
+#### <ins>POPUP MENU:</ins>
+
+In the main project, a popup was used for text formatting.
+Except for a few rare cases where there’s really no good alternative, I’m generally not in favor of using popups — for two main reasons:
+
+First, unlike popup menus on desktop and mobile that are handled by the OS and look consistent, web-based popups all have their own unique styles. This breaks visual habits for users and can become irritating over time.
+
+Second, when a popup appears, it covers whatever’s behind it — which means users can’t see the underlying content. This becomes especially problematic in components like text editors.
+
+Because of these reasons, instead of using a popup menu that shows up next to the cursor, I designed an alternative menu approach.
+
+---
+
+#### <ins>DEBOUNCING:</ins>
+
+For some of the frequently used parts of the app, I used debouncing to improve performance.
+
+One example is the history feature. I noticed that Telegram on macOS uses a similar approach, so I made sure to include it in the version I built as well.
+
+Right now, the debounce delay is set to half a second, but you can easily adjust that yourself.
+What this means is: when you start typing, the current state won’t be saved right away. Instead, once you stop typing and 500 milliseconds pass, that’s when the history captures the current state.
+
+This way, the app avoids saving the state with every keystroke or change, which keeps things more efficient.
+
+---
+
+#### <ins>FORMATING THE LAST LINE:</ins>
+
+One common issue in many web-based text editors — including Telegram’s — is that when you apply formatting to the last word or line of your text, it becomes difficult to continue typing in plain, unformatted text afterward.
+
+You basically get stuck in that formatting unless you manually remove it from part of the ending.
+
+I’ve handled this in my editor: when you apply formatting to the last word or line and then press Enter, I automatically insert a `<br>` right after the formatted content.
+
+That allows you to continue typing outside of that formatting, without needing to tweak anything manually.
+
+---
+
+#### <ins>FINAL WORD (v0.2.0) 😄:</ins>
+
+Even though I had already submitted the first version of my project, and there was no mention of reevaluating submissions during the extra time that was announced, I later saw a post in Channel A that made me realize I had misunderstood some parts of the editor requirements.
+
+After seeing that post, I rewrote and improved my editor based on the new insights I gained from it.
+
+Despite everything, there’s a quote from Steve Martin that really stuck with me:
+
+`"Be So Good They Can't Ignore You"`
+
+So I did my best to make it as solid as possible.
 
 ---
