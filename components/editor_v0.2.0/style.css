@@ -57,28 +57,34 @@ MENU BUTTONS
 /* =============================================================================
 FORMATTING STYLES
 ============================================================================= */
-.editor b {
+.editor b,
+.chat-box b {
   font-weight: bold;
 }
 
-.editor i {
+.editor i,
+.chat-box i {
   font-style: italic;
 }
 
-.editor u {
+.editor u,
+.chat-box u {
   text-decoration: underline;
 }
 
-.editor s {
+.editor s,
+.chat-box s {
   text-decoration: line-through;
 }
 
-.editor mark {
+.editor mark,
+.chat-box mark {
   background-color: #ffe817;
   padding: 0 2px;
 }
 
-.editor .spoiler {
+.editor .spoiler,
+.chat-box .spoiler {
   background-color: #000;
   color: #000;
   padding: 0 2px;
@@ -87,11 +93,13 @@ FORMATTING STYLES
   user-select: none;
 }
 
-.editor .spoiler.revealed {
+.editor .spoiler.revealed,
+.chat-box .spoiler.revealed {
   color: #fff;
 }
 
-.editor code {
+.editor code,
+.chat-box code {
   display: inline-block;
   font-family: monospace;
   background-color: #d7d7d7;
@@ -99,18 +107,21 @@ FORMATTING STYLES
   border-radius: 5px;
 }
 
-.editor a {
+.editor a,
+.chat-box a {
   color: #0366d6;
   text-decoration: underline;
 }
 
-.editor a:hover {
+.editor a:hover,
+.chat-box a:hover {
   text-decoration: none;
 }
 /* =============================================================================
 SINGLE_LINE QUOTE (q)
 ============================================================================= */
-.editor q {
+.editor q,
+.chat-box q {
   position: relative;
   display: inline-block;
   margin: 0.75em 0;
@@ -124,7 +135,8 @@ SINGLE_LINE QUOTE (q)
   z-index: 0;
 }
 
-.editor q::before {
+.editor q::before,
+.chat-box q::before {
   content: '';
   position: absolute;
   top: 0;
@@ -137,12 +149,14 @@ SINGLE_LINE QUOTE (q)
   z-index: -1;
 }
 
-.editor q > * {
+.editor q > *,
+.chat-box q > * {
   position: relative;
   z-index: 1;
 }
 
-.editor q::after {
+.editor q::after,
+.chat-box q::after {
   content: '”';
   position: absolute;
   top: 0.5em;
