@@ -320,12 +320,6 @@ Even though I had already submitted the first version of my project, and there w
 
 After seeing that post, I rewrote and improved my editor based on the new insights I gained from it.
 
-Despite everything, there’s a quote from Steve Martin that really stuck with me:
-
-`"Be So Good They Can't Ignore You"`
-
-So I did my best to make it as solid as possible.
-
 ---
 
 #### <ins>PREVIEW:</ins>
